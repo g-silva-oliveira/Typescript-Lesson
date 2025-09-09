@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": false,
+    "rootDir": ".",
+    "skipLibCheck": true
+  },
+  "include": [
+    "tests/homework-type-validation.test.ts",
+    "src/types-homework.ts",
+    "src/server-homework.ts",
+    "src/answers/**/*"
+  ],
+  "exclude": []
+}
