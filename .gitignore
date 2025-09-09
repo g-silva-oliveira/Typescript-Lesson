@@ -32,6 +32,3 @@ coverage/
 
 # Misc
 *.log
-
-# Ignore answers
-src/answers/
