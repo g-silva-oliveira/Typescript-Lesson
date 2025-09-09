@@ -1,0 +1,35 @@
+{
+  "name": "typescript-hobbies-api-lesson",
+  "version": "1.0.0",
+  "description": "A TypeScript learning project with a hobbies CRUD API using Fastify and Prisma",
+  "main": "dist/server-homework.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server-homework.js",
+    "dev": "tsx watch src/server-homework.ts",
+    "test": "jest",
+    "test:basic": "jest tests/basic-typescript.test.ts",
+    "test:intermediate": "jest tests/intermediate-typescript.test.ts",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "prisma:seed": "tsx prisma/seed.ts"
+  },
+  "keywords": ["typescript", "fastify", "prisma", "learning", "api", "crud"],
+  "author": "Guilherme S. Oliveira [g.silva.oliveira@accenture.com]",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.30",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "@fastify/cors": "^9.0.1",
+    "@prisma/client": "^5.12.1",
+    "fastify": "^4.26.2",
+    "prisma": "^5.12.1"
+  }
+}
