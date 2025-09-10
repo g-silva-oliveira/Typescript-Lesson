@@ -24,34 +24,44 @@ cd typescript_2025
 # Install dependencies
 npm install
 
-# Set up the database
-npm run db:setup
+# Generate Prisma client
+npm run prisma:generate
+
+# Set up the database and run migrations
+npm run prisma:migrate
+
+# Seed the database with sample data
+npm run prisma:seed
 
 # Start development server
 npm run dev
 ```
 
-## � Project Structure
+> **Note**: The `npm run dev` command runs the homework server implementation. To run the complete reference implementation, you can start the server with `tsx src/answers/server.ts` after completing the homework exercises.
+
+## 📁 Project Structure
 
 ```
 typescript_2025/
 ├── src/
-│   ├── types.ts              # Complete TypeScript type definitions (reference)
-│   ├── server.ts             # Fastify server with full typing (reference)
-│   ├── repository.ts         # Database operations
-│   └── answers/              # Complete implementations for validation
-├── homework/
-│   ├── types-homework.ts     # Student practice file (fix the types!)
-│   └── server-homework.ts    # Server implementation practice
+│   ├── index.ts                  # Main application entry point
+│   ├── repository.ts             # Database operations with Prisma
+│   ├── types-homework.ts         # Student practice file (fix the types!)
+│   ├── server-homework.ts        # Server implementation practice
+│   └── answers/                  # Complete reference implementations
+│       ├── types.ts              # Complete TypeScript type definitions
+│       └── server.ts             # Fastify server with full typing
 ├── tests/
 │   ├── basic-typescript.test.ts       # 17 tests for TypeScript basics
 │   ├── intermediate-typescript.test.ts # 20 tests for advanced concepts
-│   └── homework-type-validation.test.ts # Homework validation system
+│   ├── homework-type-validation.test.ts # Homework validation system
+│   └── type-validation.test.ts         # Additional type validation tests
 ├── prisma/
-│   ├── schema.prisma         # Database schema
-│   └── seed.ts              # Sample data
-└── docs/
-    └── HOMEWORK-VALIDATION.md # Homework validation guide
+│   ├── schema.prisma             # Database schema definition
+│   ├── seed.ts                   # Sample data for development
+│   └── migrations/               # Database migration files
+├── HOMEWORK-VALIDATION.md        # Homework validation guide
+└── package.json                  # Project dependencies and scripts
 ```
 
 ## 🏗️ API Endpoints
@@ -91,11 +101,11 @@ This project includes a unique homework validation system that uses TypeScript's
 
 ### How to Complete Homework
 
-1. **Fix Type Definitions** (`homework/types-homework.ts`):
+1. **Fix Type Definitions** (`src/types-homework.ts`):
    - Replace all `any` types with proper TypeScript types
    - Implement interfaces, generics, and utility types
 
-2. **Implement Server Types** (`homework/server-homework.ts`):
+2. **Implement Server Types** (`src/server-homework.ts`):
    - Add proper Fastify typing
    - Fix route handlers and middleware
 
@@ -117,13 +127,13 @@ This project includes a unique homework validation system that uses TypeScript's
 
 ### Beginner (Start Here)
 1. Run basic tests: `npm run test:basic`
-2. Study `src/types.ts` for reference implementations
-3. Complete `homework/types-homework.ts`
+2. Study `src/answers/types.ts` for reference implementations
+3. Complete `src/types-homework.ts`
 
 ### Intermediate
 1. Run intermediate tests: `npm run test:intermediate`
 2. Study advanced patterns in the codebase
-3. Complete `homework/server-homework.ts`
+3. Complete `src/server-homework.ts`
 
 ### Advanced
 1. Implement your own features
@@ -139,14 +149,17 @@ npm run build              # Build for production
 npm run start              # Start production server
 
 # Database
-npm run db:setup           # Initialize database and seed data
-npm run db:reset           # Reset database
-npm run db:studio          # Open Prisma Studio (visual database editor)
+npm run prisma:generate    # Generate Prisma client
+npm run prisma:migrate     # Run database migrations
+npm run prisma:seed        # Seed database with sample data
+npm run prisma:studio      # Open Prisma Studio (visual database editor)
 
-# Code Quality
-npm run type-check         # TypeScript type checking
+# Testing & Validation
 npm test                   # Run all tests
-npm run test:watch         # Run tests in watch mode
+npm run test:basic         # Run basic TypeScript tests
+npm run test:intermediate  # Run intermediate TypeScript tests
+npm run test:homework      # Validate homework type implementations
+npm run check:homework     # Alias for homework validation
 ```
 
 ## � Database Schema

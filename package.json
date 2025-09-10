@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
-    "dev": "tsx watch src/server.ts",
+    "dev": "tsx watch src/index.ts",
     "test": "jest",
     "test:basic": "jest tests/basic-typescript.test.ts",
     "test:intermediate": "jest tests/intermediate-typescript.test.ts",
